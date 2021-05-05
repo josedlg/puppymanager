@@ -1,18 +1,18 @@
 package io.puppymanager.isthesiteup.modal;
 
 import java.io.Serializable;
-import java.lang.invoke.InjectedProfile;
 
-import javax.persistance.Entity;
-import java.io.Serializable;
+
+import javax.persistence.*;
+
 
 @Entity
 public class Puppy implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.Auto)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
-    private String bread; 
+    private String breed; 
     private String name;
     private String email;
     private String phone;
@@ -22,12 +22,12 @@ public class Puppy implements Serializable{
     
     public Puppy() {}
 
-    public Puppy(String bread, String name,String email, String phone, String imageURL, String puppyCode){
-        this.bread = bread();
-        this.name = name();
-        this.email = email();
-        this.phone = phone();
-        this.imageURL = imageURL();        
+    public Puppy(String breed, String name,String email, String phone, String imageURL, String puppyCode){
+        this.breed = breed;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.imageURL = imageURL;        
     }
     public Long getId() {
 		return this.id;
@@ -38,11 +38,11 @@ public class Puppy implements Serializable{
 	}
 
 	public String getBread() {
-		return this.bread;
+		return this.breed;
 	}
 
 	public void setBread(String bread) {
-		this.bread = bread;
+		this.breed = bread;
 	}
 
 	public String getName() {
@@ -64,7 +64,7 @@ public class Puppy implements Serializable{
 	public String getPhone() {
 		return this.phone;
 	
-
+    }
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
@@ -88,7 +88,7 @@ public class Puppy implements Serializable{
 
     public String toString() {
         return 
-        id + " " + bread + " " + name + " " + email + " " + phone + " " + imageURL + " " + puppyCode;
+        id + " " + breed + " " + name + " " + email + " " + phone + " " + imageURL + " " + puppyCode;
     }
 
 }
